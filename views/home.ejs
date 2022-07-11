@@ -1,0 +1,24 @@
+<%-include('partials/header');-%>
+
+
+
+<h1 class="homeHeading" >Create and Read the World's Best Blogs</h1>
+
+
+<p class="pHome" ><%=homeContent%></p>
+<hr>
+
+<% posts.forEach((item,index)=>{ %>
+    <h3 class="headingHome"> <%=item.title%> </h3>
+    <div class="homeContent">
+        <p><%=item.blog.substring(0,200)%> <a href="/posts/<%=item.title%>">Read More...</a></p>
+    
+    
+    
+    <hr>
+
+
+
+<%})%>
+</div>
+<%-include('partials/footer');-%>

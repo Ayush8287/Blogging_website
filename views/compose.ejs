@@ -1,0 +1,38 @@
+<%-include('partials/header');-%>
+<h1 class="headingCompose">Compose</h1>
+<form action="/compose" method="post">
+    <div class="form-group">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="title" required><br>
+      
+        <label for="exampleFormControlTextarea1" class="form-label">Post</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="30" name="post" required></textarea>
+       
+      </div>
+
+<button type="submit" class="btn btn-primary my-3">Publish</button></form>
+<%-include('partials/footer');-%>
+<script>
+  $(document).ready(function() {
+
+      $("#submitform").on("click", function() {
+
+          var message = $('textarea').val();
+
+          if (message.length == "0") {
+              $(".errorMsg").show();
+
+          } else {
+
+              $("#display-results").prepend("<div id='message' >" + linkify(message) + "</div>");
+              $('textarea').val("");
+
+          }
+      });
+  });
+
+  function linkify(text) {
+      var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+      return text.replace(exp, "<a href='$1' target='_blank'>$1</a>");
+  }
+</script>

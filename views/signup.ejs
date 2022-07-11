@@ -1,0 +1,31 @@
+<%-include('partials/header2')-%>
+
+<body>
+    
+<div class="cont center">
+    <form id="form" action="/signup" method="post">
+        <h2 class="headingSignup">SIGN UP</h2>
+        <input autocomplete="off" id="nam" type="text" name="name" class="inputSignup" placeholder="Name" ><br><br>
+        <input id="pas" type="password" autocomplete="off" name="password" class="inputSignup" placeholder="Password"><br><br>
+        <div class="buttonSignup">
+            <button type="submit" class="btn btn-primary btn-lg btnSignup">Sign Up</button>
+            <button type="submit" class="btn btn-success btn-lg btnSignup"><a href="/login" style="text-decoration: none;color:black">Login</a></button>
+        </form>
+        <h3 style="color: red;"><%=alert%></h3>
+    </div>
+
+<%-include('partials/footer')-%>
+
+
+</body>
+<script>
+    let form = document.getElementById('form')
+    form.addEventListener('submit',onsubmit)
+    function onSubmit(){
+    let name = document.getElementById('nam')
+    let pass = document.getElementById('pas')
+    if(name.value==''||pass.value==''){
+        alert('Please fill all the fields')
+    }}
+</script>
+</html>

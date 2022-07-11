@@ -1,0 +1,13 @@
+<%-include('partials/header');-%>
+<% posts.forEach((item,index)=>{ %>
+    <h3 class="headingPost"><%=index+1%>  <%=item.title%></h3>
+    <p><%=item.blog%></p>
+    <hr>
+
+
+
+<%})%>
+<%-include('partials/footer');-%>
+<script>
+    
+</script>
